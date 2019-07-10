@@ -1,6 +1,6 @@
 from mongoengine import *
 
 class Gesto(Document):
-    descripcion = StringField()
-    inicio = ReferenceField('Vector')
-    fin = ReferenceField('Vector')
+    descripcion = StringField(required=True)
+    inicio = IntField(required=True)
+    fin = IntField(required=True)
