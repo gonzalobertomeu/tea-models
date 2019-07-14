@@ -1,5 +1,4 @@
 from models.Usuario import Usuario
-from mongoengine import *
 
 def crearPaciente(nombre,apellido,dni,fechaNac,sexo,nacionalidad):
     #Hacer validaciones necesarias...
@@ -41,7 +40,9 @@ def buscarAllPacientes():
 def buscarPacientePorDni(dni):
     paciente = Usuario.objects(dni__exact=dni).first()
     return paciente
-
+    
 def buscarPacientesPorApellido(apellido):
+    if(apellido == ""):
+        return None
     pacientes = Usuario.objects(apellido__icontains=apellido)
     return pacientes

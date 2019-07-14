@@ -26,5 +26,7 @@ def buscarMedicoPorMatricula(matricula):
     return medico
 
 def buscarMedicosPorApellido(apellido):
-    medicos = Medico.objects(apellido_icontains=apellido)
+    if(apellido == ""):
+        return None
+    medicos = Medico.objects(apellido__icontains=apellido)
     return medicos
